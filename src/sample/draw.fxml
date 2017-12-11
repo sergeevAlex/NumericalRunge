@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root1" prefHeight="718.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DrawController">
+    <children>
+        <CheckBox fx:id="leftRec" layoutX="14.0" layoutY="626.0" mnemonicParsing="false" text="AutoStep" />
+        <CheckBox fx:id="rightRec" layoutX="134.0" layoutY="626.0" mnemonicParsing="false" text="ConstStep" />
+        <CheckBox fx:id="middleRec" layoutX="237.0" layoutY="626.0" mnemonicParsing="false" text="Adams-Moulton" />
+      <LineChart fx:id="LC" layoutX="10.0" layoutY="14.0" prefHeight="588.0" prefWidth="603.0" snapToPixel="false">
+        <xAxis>
+          <NumberAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+    </children>
+</AnchorPane>

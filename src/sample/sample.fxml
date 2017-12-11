@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="650.0" prefWidth="1000.0">
+         <children>
+            <Label layoutY="6.0" text="Лабораторная работа по предмету &quot;Численные методы&quot;. На тему: &quot;Решение задачи Коши&quot;. Выполнил студент группы ПС-15-1 Сергеев Алексей" />
+            <TableView fx:id="tableID" layoutX="44.0" layoutY="52.0" prefHeight="416.0" prefWidth="300.0">
+              <columns>
+                <TableColumn fx:id="coordinate" prefWidth="103.28647994995117" text="Xi" />
+                <TableColumn fx:id="value" prefWidth="119.75584411621094" text="Yi" />
+                  <TableColumn fx:id="step" minWidth="8.0" prefWidth="79.24420166015625" text="Step" />
+              </columns>
+            </TableView>
+            <Label layoutX="146.0" layoutY="38.0" text="Automatic Step" />
+            <TableView fx:id="tableConst" layoutX="364.0" layoutY="52.0" prefHeight="416.0" prefWidth="300.0">
+               <columns>
+                  <TableColumn fx:id="constCoordinate" prefWidth="117.08456420898438" text="Xi" />
+                  <TableColumn fx:id="constValue" prefWidth="107.91546630859375" text="Yi" />
+                  <TableColumn fx:id="constStep" minWidth="8.0" prefWidth="76.08453369140625" text="Step" />
+               </columns>
+            </TableView>
+            <Label layoutX="470.0" layoutY="38.0" text="Constant Step" />
+            <Button fx:id="btnOpen" layoutX="751.0" layoutY="579.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Draw!" />
+            <TableView fx:id="tableAdams" layoutX="686.0" layoutY="52.0" prefHeight="416.0" prefWidth="300.0">
+               <columns>
+                  <TableColumn fx:id="adamsCoordinate" prefWidth="117.08456420898438" text="Xi" />
+                  <TableColumn fx:id="adamsValue" prefWidth="107.91546630859375" text="Yi" />
+                  <TableColumn fx:id="adamsStep" minWidth="8.0" prefWidth="76.08453369140625" text="Step" />
+               </columns>
+            </TableView>
+            <Label layoutX="792.0" layoutY="38.0" text="AdamsMoulton" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
