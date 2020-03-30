@@ -3,12 +3,11 @@ package sample;
 import java.util.ArrayList;
 
 public class Runge {
-
     private double cauchyValue;
     private double a;
     private double b;
-    private double eps = Math.pow(10,-6);
-    private double eps1 = 0.001;
+    private double eps = 1e-6;
+    private double eps1 =;
 
     private boolean endOfBound;
     private ArrayList<Double> autoValues = new ArrayList<>();
@@ -17,22 +16,23 @@ public class Runge {
     private ArrayList<Double> constValues = new ArrayList<>();
     private ArrayList<Double> constXi = new ArrayList<>();
 
-
     public ArrayList<Double> getConstXi() {
         return constXi;
     }
+    
     public Runge(double cauchyValue, double a, double b, boolean endOfBound) {
         this.cauchyValue = cauchyValue;
         this.a = a;
         this.b = b;
         this.endOfBound = endOfBound;
     }
-    private double function(double x, double y){
-     return (y*y + Math.pow(x,-4));
+    
+    private double function(double x, double y) {
+        return (y * y + Math.pow(x, - 4));
     }
 
-    private double calcFormula(double step,double previous,double xi){
-        return (previous + step*function(xi,previous));
+    private double calcFormula(double step, double previous, double xi) {
+        return (previous + step * function(xi, previous));
     }
 
     public void method(){  // with auto-step
@@ -40,7 +40,7 @@ public class Runge {
         autoValues.add(cauchyValue);
         steps.add(0.01);
         Xi.add(1.0);
-        while(true){
+        while(true) {
             double fullH =  calcFormula(steps.get(i),autoValues.get(i),Xi.get(i));
             double halfH1 = calcFormula(steps.get(i)/2,autoValues.get(i),Xi.get(i)+steps.get(i)/2);
             double halfH =  calcFormula(steps.get(i)/2,halfH1,Xi.get(i)+steps.get(i));
@@ -65,25 +65,19 @@ public class Runge {
                         steps.set(i,b - steps.get(i));
                     }
                 }
-            }
-            else {
-                steps.set(i,steps.get(i)/2);
+            } else {
+                   steps.set(i,steps.get(i)/2);
             }
         }
-
-
 
         constValues.add(-1.0);
         constXi.add(1.0);
         double h = (b-a)/i;
 
-
         for(int k = 1;k <= i;k++){
             constValues.add(calcFormula(h,constValues.get(k-1),constXi.get(k-1)));
-            constXi.add(constXi.get(k-1)+h);
-
+            constXi.add(constXi.get(k - 1) + h);
         }
-
     }
 
 
